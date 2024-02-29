@@ -1,10 +1,28 @@
 # EisVAE
-source code of "Deep clustering in subglacial radar reflectance reveals subglacial lakes"
 
-Thank you for your interest in our research. As of now, the code and models, are in the process of being prepared for public release. We sincerely appreciate your patience and understanding.
+Deep clustering in subglacial radar reflectance reveals subglacial lakes
 
-Once the research has been officially published, we will make all the relevant materials available in this repository. This includes the demo code, trained models.
 
-We are grateful for your interest and support. Please stay tuned for further updates. If you have any inquiries or specific requests, feel free to contact us through dongsh@mail.ustc.edu.cn.
+Python (>=3.6) environment is required. You can install all the required python packages by
 
-Thank you again for your attention, and we look forward to sharing our work with you.
+```
+pip install -r requirements.txt
+```
+
+Each folder corresponds to different steps of the process:
+
+1. `pick_train_data_from_radar_images/pick_data_from_IPR_images.py`: Pick the ice bottom reflections from a set of radar images (From CReSIS dataset).
+2. `VAE_train/vae_main.py`: Train Variational Auto-Encoder (VAE) from the picked data set of radar reflections.
+3. `clustering_k-means/clustering_by_k-means.py`: Apply K-means clustering on the encoded radar reflections.
+4. `detecting_lakes_by_models/EisVAE_detectors.py`: Use the trained encoder and saved K-means model to detect subglacial lakes from a set of radar images.
+
+Demonstration data and models were contained. You can run each step separately.
+
+
+
+For each part of the code (in different folders), run it in its folder separately:
+
+```
+cd ${folder}
+python ${filename.py}
+```
